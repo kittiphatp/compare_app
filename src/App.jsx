@@ -17,6 +17,34 @@ function App() {
   ]);
   
 
+  const sendLineBot = () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer BqfA+9vOsVJL6Qd4s0Or72MnZ8U+E5pK6sXMBFOxX4IxMSGT+Pjy+hk8cz9jCarrUsDVIxokHlsdZVu6cEdlsLp/NP6jF6WOJbY02iHcA1z782zeMsrTBisDglNdghIn/mQINge2Wl5XIqHqJoJAeAdB04t89/1O/w1cDnyilFU=");
+
+    const raw = JSON.stringify({
+      "to": "U2e9f8492969cc79fc1fc6a834d0048a3",
+      "messages": [
+        {
+          "type": "text",
+          "text": "Hello, world1"
+        }
+      ]
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    fetch("https://api.line.me/v2/bot/message/push", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
+  }
+
   const getRandomImage = () => {
     if (imagePool.length > 0) {
       const randomIndex = Math.floor(Math.random() * imagePool.length);
@@ -27,6 +55,7 @@ function App() {
       );
       return newImage;
     }
+    sendLineBot();
     return imageFallback; // Fallback image
   };
 
