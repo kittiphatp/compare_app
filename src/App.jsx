@@ -35,7 +35,6 @@ function App() {
     if(selectedImage !== imageFallback) {
       if (selectedImage === image1) {
         setImage2(getRandomImage());
-        
       } else if (selectedImage === image2) {
         setImage1(getRandomImage());
       }
