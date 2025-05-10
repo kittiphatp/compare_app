@@ -27,7 +27,6 @@ function App() {
       );
       return newImage;
     }
-    fetchHook(image1 === imageFallback ? image2 : image1);
     return imageFallback; // Fallback image
   };
 
