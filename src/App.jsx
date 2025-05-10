@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const imageFallback = '/src/imgs/imageFallback.jpg';
+  const imageFallback = 'https://img.freepik.com/free-vector/romantic-love-message-hearts-background_1017-29964.jpg';
 
   const [image1, setImage1] = useState('https://d2cva83hdk3bwc.cloudfront.net/5021074884-TH-21225007306-r-lly-the-bag-mark-ii-in-knit-and-vegan-leather-with-fm-logo-denim-1.jpg');
   const [image2, setImage2] = useState('https://d2cva83hdk3bwc.cloudfront.net/4875911845-TH-20452800817-r-lly-the-bag-mark-ii-in-knit-and-vegan-leather-with-fm-logo-black-1.jpg');
@@ -16,31 +16,6 @@ function App() {
     // Add more image URLs here
   ]);
   
-  const fetchHook = (selectedImage) => {
-    console.log('Selected image:', selectedImage);
-    
-      fetch('https://api.line.me/v2/bot/message/push', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer BqfA+9vOsVJL6Qd4s0Or72MnZ8U+E5pK6sXMBFOxX4IxMSGT+Pjy+hk8cz9jCarrUsDVIxokHlsdZVu6cEdlsLp/NP6jF6WOJbY02iHcA1z782zeMsrTBisDglNdghIn/mQINge2Wl5XIqHqJoJAeAdB04t89/1O/w1cDnyilFU=',
-          
-        },
-        mode: 'no-cors',
-        body: JSON.stringify({
-          to: 'U2e9f8492969cc79fc1fc6a834d0048a3',
-          messages: [
-            {
-              type: 'text',
-              text: `'${selectedImage}'`,
-            },
-          ],
-        }),
-      }
-    ).catch((error) => {
-      console.error('Error:', error);
-    });
-  }
 
   const getRandomImage = () => {
     if (imagePool.length > 0) {
