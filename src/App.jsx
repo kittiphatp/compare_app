@@ -30,7 +30,7 @@ function App() {
         // 'Access-Control-Allow-Origin': '*',
       },
       // mode: 'no-cors',
-      body: JSON.stringify({"selected": "abcde"}),
+      body: JSON.stringify({"selected": image}),
       redirect: "follow"
     })
       .then((response) => {
