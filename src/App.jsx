@@ -20,8 +20,8 @@ function App() {
     let image = image1 === imageFallback ? image2 : image1;
     image = image.split('https://d2cva83hdk3bwc.cloudfront.net/')[1];
     // console.log(image);
-    // fetch(`https://compare-server-lemon.vercel.app/send-message/${image}`, {
-    fetch('http://localhost:3000/send-message', {
+    fetch(`https://compare-server-lemon.vercel.app/send-message/${image}`, {
+    // fetch('http://localhost:3000/send-message', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
