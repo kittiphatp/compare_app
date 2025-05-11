@@ -17,7 +17,7 @@ function App() {
   ]);
 
   const handlePost = () => {
-    fetch('https://vercel.com/kittiphatps-projects/compare-server/5GS4muTgkFw4m7GEPHxHkSVycPu9/send-message', {
+    fetch('https://compare-server-lemon.vercel.app/send-message', {
     // fetch('http://localhost:3000/send-message', {
       method: 'POST',
       headers: {
