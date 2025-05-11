@@ -15,6 +15,28 @@ function App() {
     'https://d2cva83hdk3bwc.cloudfront.net/RALLY-SBBRMRTBMWIDWCFY-rally-movement-rally-the-bag-mini-whisper-i-do-1.jpg',
     // Add more image URLs here
   ]);
+
+  const handlePost = () => {
+    fetch('https://vercel.com/kittiphatps-projects/compare-server/5GS4muTgkFw4m7GEPHxHkSVycPu9/send-message', {
+    // fetch('http://localhost:3000/send-message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      'Access-Control-Allow-Origin': '*',
+      mode: 'no-cors',
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Message sent successfully!')
+        } else {
+          console.error('Error sending message:', response.statusText)
+        }
+      })
+      .catch((error) => {
+        console.error('Error sending message:', error)
+      })
+  }
   
   const getRandomImage = () => {
     if (imagePool.length > 0) {
@@ -26,6 +48,7 @@ function App() {
       );
       return newImage;
     }
+    handlePost();
     return imageFallback; // Fallback image
   };
 
