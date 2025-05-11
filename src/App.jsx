@@ -17,14 +17,20 @@ function App() {
   ]);
 
   const handlePost = () => {
-    fetch('https://compare-server-lemon.vercel.app/send-message', {
-    // fetch('http://localhost:3000/send-message', {
+    let image = image1 === imageFallback ? image2 : image1;
+    image = image.split('https://d2cva83hdk3bwc.cloudfront.net/')[1];
+    // console.log(image);
+    // fetch(`https://compare-server-lemon.vercel.app/send-message/${image}`, {
+    fetch('http://localhost:3000/send-message', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': '*',
+        // 'Access-Control-Allow-Origin': '*',
       },
-      'Access-Control-Allow-Origin': '*',
-      mode: 'no-cors',
+      // mode: 'no-cors',
+      body: JSON.stringify({"selected": "abcde"}),
+      redirect: "follow"
     })
       .then((response) => {
         if (response.ok) {
